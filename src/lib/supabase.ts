@@ -24,7 +24,8 @@ export type BotType =
   | 'venting_shredder'
   | 'cognitive_distortion'
   | 'sleep_guardian'
-  | 'gratitude';
+  | 'gratitude'
+  | 'face_detection';
 
 export type Conversation = {
   id: string;

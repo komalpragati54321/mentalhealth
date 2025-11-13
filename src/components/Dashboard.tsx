@@ -10,6 +10,7 @@ import {
   LogOut,
   Menu,
   X,
+  Video,
 } from 'lucide-react';
 import { BotType } from '../lib/supabase';
 import TripleMBot from './bots/TripleMBot';
@@ -18,6 +19,7 @@ import VentingShredder from './bots/VentingShredder';
 import CognitiveDistortionBot from './bots/CognitiveDistortionBot';
 import SleepGuardianBot from './bots/SleepGuardianBot';
 import GratitudeTracker from './bots/GratitudeTracker';
+import FaceDetectionBot from './bots/FaceDetectionBot';
 
 type BotConfig = {
   type: BotType;
@@ -77,6 +79,14 @@ const bots: BotConfig[] = [
     color: 'text-pink-600',
     bgColor: 'bg-pink-50',
   },
+  {
+    type: 'face_detection',
+    name: 'Face Detection Bot',
+    description: 'Emotion-aware smart chatbot',
+    icon: <Video className="w-6 h-6" />,
+    color: 'text-cyan-600',
+    bgColor: 'bg-cyan-50',
+  },
 ];
 
 export default function Dashboard() {
@@ -106,6 +116,8 @@ export default function Dashboard() {
         return <SleepGuardianBot onBack={() => setSelectedBot(null)} />;
       case 'gratitude':
         return <GratitudeTracker onBack={() => setSelectedBot(null)} />;
+      case 'face_detection':
+        return <FaceDetectionBot onBack={() => setSelectedBot(null)} />;
       default:
         return null;
     }
